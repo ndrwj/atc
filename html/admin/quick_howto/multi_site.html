@@ -1,0 +1,384 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configure Multi-Site Origin &mdash; Traffic Control 3.1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Configure Federations" href="federations.html" />
+    <link rel="prev" title="Quick How To Guides" href="index.html" />
+    <link href="../../_static/theme_overrides.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Traffic Control
+          
+
+          
+            
+            <img src="../../_static/ATC-SVG-FULL-WHITE.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/index.html">CDN Basics</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Traffic Control Overview</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops/migration_from_20_to_22.html">Traffic Ops - Migrating from 2.0 to 2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_portal/installation.html">Traffic Portal Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_portal/usingtrafficportal.html">Traffic Portal - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_portal/default_profiles.html">Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_router.html">Traffic Router Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_router/migrationto2-3.html">Traffic Router - Migrating to 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_stats.html">Traffic Stats Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_server.html">Traffic Server Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_vault.html">Traffic Vault Administration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Quick How To Guides</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#traffic-ops">Traffic Ops</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Configure Multi-Site Origin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="federations.html">Configure Federations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="regionalgeo.html">Configure Regional Geo-blocking (RGB)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="anonymous_blocking.html">Configure Anonymous Blocking</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#traffic-portal">Traffic Portal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">APIs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Traffic Control</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Administrator’s Guide</a> &raquo;</li>
+        
+          <li><a href="index.html">Quick How To Guides</a> &raquo;</li>
+        
+      <li>Configure Multi-Site Origin</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/admin/quick_howto/multi_site.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configure-multi-site-origin">
+<span id="multi-site-origin-qht"></span><h1>Configure Multi-Site Origin<a class="headerlink" href="#configure-multi-site-origin" title="Permalink to this headline">¶</a></h1>
+<p>The following steps will take you through the procedure of setting up a Multi-Site Origin (MSO).</p>
+<ol class="arabic">
+<li><p>Create Cache Groups for the origin locations, and assign the appropriate parent-child relationship between the mid and origin Cache Groups. Each mid Cache Group can be assigned a primary and secondary origin parent Cache Group. When the mid cache parent configuration is generated, origins in the primary Cache Groups will be listed first, followed by origins in the secondary Cache Group. Origin servers assigned to the Delivery Service that are assigned to neither the primary nor secondary Cache Groups will be listed last.</p>
+<blockquote>
+<div><div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/001.png"><img alt="../../_images/001.png" src="../../_images/001.png" style="width: 1472.0px; height: 210.0px;" /></a>
+</div>
+</div></blockquote>
+</li>
+<li><p>Create a profile to assign to each of the origins:</p>
+<blockquote>
+<div><div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/013.png"><img alt="../../_images/013.png" src="../../_images/013.png" style="width: 1470.0px; height: 219.0px;" /></a>
+</div>
+</div></blockquote>
+</li>
+<li><p>Create server entries for the origination vips:</p>
+<blockquote>
+<div><div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/023.png"><img alt="../../_images/023.png" src="../../_images/023.png" style="width: 1468.0px; height: 166.0px;" /></a>
+</div>
+</div></blockquote>
+</li>
+<li><p>Check the multi-site check box in the delivery service screen:</p>
+<blockquote>
+<div><div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/mso-enable.png"><img alt="../../_images/mso-enable.png" src="../../_images/mso-enable.png" style="width: 1636.0px; height: 1005.0px;" /></a>
+</div>
+</div></blockquote>
+</li>
+<li><p>Assign the org servers to the delivery service that will have the multi site feature. Org servers assigned to a delivery service with multi-site checked will be assigned to be the origin servers for this DS.</p>
+<blockquote>
+<div><div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/033.png"><img alt="../../_images/033.png" src="../../_images/033.png" style="width: 580.0px; height: 343.0px;" /></a>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>“Origin Server Base URL” uniqueness: In order to enable MID caches to distinguish delivery services by different MSO algorithms while performing parent fail-over, it requires that “Origin Server Base URL” (OSBU) for each MSO-enabled Delivery Service is unique. This means that the OSBU of a MSO-enabled Delivery Service should be different with the OSBUs of any other Delivery Service, regardless of whether they are MSO-enabled or not. The exceptions to this rule are:</p>
+<ul class="simple">
+<li><p>If there are multiple CDNs created on the same Traffic Ops, delivery services across different CDNs may have the same OSBU configured.</p></li>
+<li><p>If several delivery services in the same CDN have the same MSO algorithm configured, they may share the same OSBU.</p></li>
+<li><p>If delivery services are assigned with different MID cache groups respectively, they can share the same OSBU.</p></li>
+<li><p>This OSBU must be valid - ATS will perform a DNS lookup on this FQDN even if IPs, not DNS, are used in the parent.config.</p></li>
+<li><p>The OSBU entered as the “Origin Server Base URL” will be sent to the origins as a host header. All origins must be configured to respond to this host.</p></li>
+</ul>
+</div>
+</div></blockquote>
+</li>
+<li><p>Create a delivery service profile. This must be done to set the MSO algorithm. Also, as of ATS 6.x, multi-site options must be set as parameters within the parent.config. Header rewrite parameters will be ignored. See <a class="reference external" href="https://docs.trafficserver.apache.org/en/6.2.x/admin-guide/files/parent.config.en.html">ATS parent.config</a> for more details. These parameters are now handled by the creation of a delivery service profile.</p>
+<blockquote>
+<div><ol class="loweralpha">
+<li><p>Create a profile of the type DS_PROFILE for the delivery service in question.</p>
+<blockquote>
+<div><div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/ds_profile.png"><img alt="../../_images/ds_profile.png" src="../../_images/ds_profile.png" style="width: 589.0px; height: 269.0px;" /></a>
+</div>
+</div></blockquote>
+</li>
+<li><p>Click “Show profile parameters” to bring up the parameters screen for the profile. Create parameters for the following:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 17%" />
+<col style="width: 24%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Config File Name</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>ATS parent.config value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>mso.algorithm</p></td>
+<td><p>parent.config</p></td>
+<td><p>true, false, strict,
+consistent_hash</p></td>
+<td><p>round_robin</p></td>
+</tr>
+<tr class="row-odd"><td><p>mso.parent_retry</p></td>
+<td><p>parent.config</p></td>
+<td><p>simple_retry, both,
+unavailable_server_retry</p></td>
+<td><p>parent_retry</p></td>
+</tr>
+<tr class="row-even"><td><p>mso.unavailable_server_retry_responses</p></td>
+<td><p>parent.config</p></td>
+<td><p>list of server response
+codes, eg “500,502,503”</p></td>
+<td><p>defaults to the value
+in records.config
+when unused.</p></td>
+</tr>
+<tr class="row-odd"><td><p>mso.max_simple_retries</p></td>
+<td><p>parent.config</p></td>
+<td><p>Nubmer of retries made
+after a 4xx error</p></td>
+<td><p>defaults to the value
+in records.config
+when unused.</p></td>
+</tr>
+<tr class="row-even"><td><p>mso.max_unavailable_server_retries</p></td>
+<td><p>parent.config</p></td>
+<td><p>Nubmer of retries made
+after a 5xx error</p></td>
+<td><p>defaults to the value
+in records.config
+when unused.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/ds_profile_parameters.png"><img alt="../../_images/ds_profile_parameters.png" src="../../_images/ds_profile_parameters.png" style="width: 2840.0px; height: 338.0px;" /></a>
+</div>
+</div></blockquote>
+</li>
+<li><p>In the delivery service page, select the newly created DS_PROFILE and save the delivery service.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Turn on parent_proxy_routing in the MID profile.</p></li>
+</ol>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="federations.html" class="btn btn-neutral float-right" title="Configure Federations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Quick How To Guides" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Traffic Control
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

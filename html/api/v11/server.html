@@ -1,0 +1,1211 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Server &mdash; Traffic Control 3.1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Static DNS Entries" href="static_dns.html" />
+    <link rel="prev" title="Roles" href="role.html" />
+    <link href="../../_static/theme_overrides.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Traffic Control
+          
+
+          
+            
+            <img src="../../_static/ATC-SVG-FULL-WHITE.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/index.html">CDN Basics</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Traffic Control Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../admin/index.html">Administrator’s Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">APIs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops_api.html">API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../routes.html">API Routes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">API 1.1 Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="asn.html">ASNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cachegroup.html">Cache Group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdn.html">CDN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html">Change Logs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deliveryservice.html">Delivery Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwinfo.html">Hardware Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parameter.html">Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="phys_location.html">Physical Location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="profile.html">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="region.html">Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="role.html">Roles</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#api-1-1-servers">/api/1.1/servers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="static_dns.html">Static DNS Entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="status.html">Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="system.html">System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="to_extension.html">TO Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="type.html">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user.html">Users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../v12/index.html">API 1.2 Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../v13/index.html">API 1.3 Reference</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Traffic Control</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">APIs</a> &raquo;</li>
+        
+          <li><a href="index.html">API 1.1 Reference</a> &raquo;</li>
+        
+      <li>Server</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api/v11/server.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="server">
+<span id="to-api-v11-server"></span><h1>Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="api-1-1-servers">
+<span id="to-api-v11-servers-route"></span><h2>/api/1.1/servers<a class="headerlink" href="#api-1-1-servers" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /api/1.1/servers</strong></p>
+<blockquote>
+<div><p>Retrieves properties of CDN servers.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Query Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 13%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dsId</span></code></p></td>
+<td><p>no</p></td>
+<td><p>Used to filter servers by delivery service.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
+<td><p>no</p></td>
+<td><p>Used to filter servers by status.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>no</p></td>
+<td><p>Used to filter servers by type.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 6%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cachegroup</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The cache group name (see <a class="reference internal" href="cachegroup.html#to-api-v11-cachegroup"><span class="std std-ref">Cache Group</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cachegroupId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The cache group id.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cdnId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Id of the CDN to which the server belongs to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cdnName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Name of the CDN to which the server belongs to.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">domainName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The domain name part of the FQDN of the cache.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">guid</span></code></p></td>
+<td><p>string</p></td>
+<td><p>An identifier used to uniquely identify the server.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hostName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The host name part of the cache.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">httpsPort</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The HTTPS port on which the main application listens (443 in most cases).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The server id (database row number).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">iloIpAddress</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 address of the lights-out-management port.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">iloIpGateway</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 gateway address of the lights-out-management port.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">iloIpNetmask</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 netmask of the lights-out-management port.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">iloPassword</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The password of the of the lights-out-management user (displays as <strong>**</strong> unless ‘ops’ / ‘admin’ user).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">iloUsername</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The user name for lights-out-management.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">interfaceMtu</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The Maximum Transmission Unit (MTU) to configure for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">interfaceName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The network interface name used for serving traffic.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ip6Address</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv6 address/netmask for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ip6Gateway</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv6 gateway for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ipAddress</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 address for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ipGateway</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 gateway for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ipNetmask</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 netmask for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lastUpdated</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The Time and Date for the last update for this server.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mgmtIpAddress</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 address of the management port (optional).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mgmtIpGateway</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 gateway of the management port (optional).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mgmtIpNetmask</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 netmask of the management port (optional).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">offlineReason</span></code></p></td>
+<td><p>string</p></td>
+<td><p>A user-entered reason why the server is in ADMIN_DOWN or OFFLINE status.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">physLocation</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The physical location name (see <a class="reference internal" href="phys_location.html#to-api-v11-phys-loc"><span class="std std-ref">Physical Location</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">physLocationId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The physical location id (see <a class="reference internal" href="phys_location.html#to-api-v11-phys-loc"><span class="std std-ref">Physical Location</span></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">profile</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The assigned profile name (see <a class="reference internal" href="profile.html#to-api-v11-profile"><span class="std std-ref">Profiles</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">profileDesc</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The assigned profile description (see <a class="reference internal" href="profile.html#to-api-v11-profile"><span class="std std-ref">Profiles</span></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">profileId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The assigned profile Id (see <a class="reference internal" href="profile.html#to-api-v11-profile"><span class="std std-ref">Profiles</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rack</span></code></p></td>
+<td><p>string</p></td>
+<td><p>A string indicating rack location.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">routerHostName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The human readable name of the router.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">routerPortName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The human readable name of the router port.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The Status string (See <a class="reference internal" href="status.html#to-api-v11-status"><span class="std std-ref">Status</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">statusId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The Status id (See <a class="reference internal" href="status.html#to-api-v11-status"><span class="std std-ref">Status</span></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tcpPort</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The default TCP port on which the main application listens (80 for a cache in most cases).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The name of the type of this server (see <a class="reference internal" href="type.html#to-api-v11-type"><span class="std std-ref">Types</span></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">typeId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The id of the type of this server (see <a class="reference internal" href="type.html#to-api-v11-type"><span class="std std-ref">Types</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">updPending</span></code></p></td>
+<td><p>bool</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+           <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-il-chicago&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;cdnId&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;cdnName&quot;</span><span class="p">:</span> <span class="s2">&quot;CDN-1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;domainName&quot;</span><span class="p">:</span> <span class="s2">&quot;chi.kabletown.net&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;guid&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+           <span class="s2">&quot;hostName&quot;</span><span class="p">:</span> <span class="s2">&quot;atsec-chi-00&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;19&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;172.16.2.6&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloIpGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;172.16.2.1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloIpNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloPassword&quot;</span><span class="p">:</span> <span class="s2">&quot;********&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloUsername&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;interfaceMtu&quot;</span><span class="p">:</span> <span class="s2">&quot;9000&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;interfaceName&quot;</span><span class="p">:</span> <span class="s2">&quot;bond0&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ip6Address&quot;</span><span class="p">:</span> <span class="s2">&quot;2033:D0D0:3300::2:2/64&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ip6Gateway&quot;</span><span class="p">:</span> <span class="s2">&quot;2033:D0D0:3300::2:1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ipAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;10.10.2.2&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ipGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;10.10.2.1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ipNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-03-08 15:57:32&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;mgmtIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;mgmtIpGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;mgmtIpNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;offlineReason&quot;</span><span class="p">:</span> <span class="s2">&quot;N/A&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;physLocation&quot;</span><span class="p">:</span> <span class="s2">&quot;plocation-chi-1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;physLocationId&quot;</span><span class="p">:</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE1_CDN1_421_SSL&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;profileDesc&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE1_CDN1_421_SSL profile&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;rack&quot;</span><span class="p">:</span> <span class="s2">&quot;RR 119.02&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;routerHostName&quot;</span><span class="p">:</span> <span class="s2">&quot;rtr-chi.kabletown.net&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;routerPortName&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ONLINE&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;statusId&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;tcpPort&quot;</span><span class="p">:</span> <span class="s2">&quot;80&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;httpsPort&quot;</span><span class="p">:</span> <span class="s2">&quot;443&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;typeId&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;updPending&quot;</span><span class="p">:</span> <span class="n">false</span>
+       <span class="p">},</span>
+       <span class="p">{</span>
+       <span class="o">...</span> <span class="n">more</span> <span class="n">server</span> <span class="n">data</span>
+       <span class="p">}</span>
+     <span class="p">]</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>GET /api/1.1/servers/:id</strong></p>
+<blockquote>
+<div><p>Retrieves properties of a CDN server by server ID.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 15%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>Server id.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 6%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cachegroup</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The cache group name (see <a class="reference internal" href="cachegroup.html#to-api-v11-cachegroup"><span class="std std-ref">Cache Group</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cachegroupId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The cache group id.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cdnId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Id of the CDN to which the server belongs to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cdnName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Name of the CDN to which the server belongs to.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">domainName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The domain name part of the FQDN of the cache.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">guid</span></code></p></td>
+<td><p>string</p></td>
+<td><p>An identifier used to uniquely identify the server.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hostName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The host name part of the cache.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">httpsPort</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The HTTPS port on which the main application listens (443 in most cases).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The server id (database row number).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">iloIpAddress</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 address of the lights-out-management port.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">iloIpGateway</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 gateway address of the lights-out-management port.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">iloIpNetmask</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 netmask of the lights-out-management port.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">iloPassword</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The password of the of the lights-out-management user (displays as <strong>**</strong> unless ‘ops’ / ‘admin’ user).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">iloUsername</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The user name for lights-out-management.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">interfaceMtu</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The Maximum Transmission Unit (MTU) to configure for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">interfaceName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The network interface name used for serving traffic.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ip6Address</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv6 address/netmask for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ip6Gateway</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv6 gateway for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ipAddress</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 address for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ipGateway</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 gateway for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ipNetmask</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 netmask for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lastUpdated</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The Time and Date for the last update for this server.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mgmtIpAddress</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 address of the management port (optional).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mgmtIpGateway</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 gateway of the management port (optional).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mgmtIpNetmask</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 netmask of the management port (optional).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">offlineReason</span></code></p></td>
+<td><p>string</p></td>
+<td><p>A user-entered reason why the server is in ADMIN_DOWN or OFFLINE status.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">physLocation</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The physical location name (see <a class="reference internal" href="phys_location.html#to-api-v11-phys-loc"><span class="std std-ref">Physical Location</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">physLocationId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The physical location id (see <a class="reference internal" href="phys_location.html#to-api-v11-phys-loc"><span class="std std-ref">Physical Location</span></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">profile</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The assigned profile name (see <a class="reference internal" href="profile.html#to-api-v11-profile"><span class="std std-ref">Profiles</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">profileDesc</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The assigned profile description (see <a class="reference internal" href="profile.html#to-api-v11-profile"><span class="std std-ref">Profiles</span></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">profileId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The assigned profile Id (see <a class="reference internal" href="profile.html#to-api-v11-profile"><span class="std std-ref">Profiles</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rack</span></code></p></td>
+<td><p>string</p></td>
+<td><p>A string indicating rack location.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">routerHostName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The human readable name of the router.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">routerPortName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The human readable name of the router port.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The Status string (See <a class="reference internal" href="status.html#to-api-v11-status"><span class="std std-ref">Status</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">statusId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The Status id (See <a class="reference internal" href="status.html#to-api-v11-status"><span class="std std-ref">Status</span></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tcpPort</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The default TCP port on which the main application listens (80 for a cache in most cases).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The name of the type of this server (see <a class="reference internal" href="type.html#to-api-v11-type"><span class="std std-ref">Types</span></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">typeId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The id of the type of this server (see <a class="reference internal" href="type.html#to-api-v11-type"><span class="std std-ref">Types</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">updPending</span></code></p></td>
+<td><p>bool</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+           <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-il-chicago&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;cdnId&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;cdnName&quot;</span><span class="p">:</span> <span class="s2">&quot;CDN-1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;domainName&quot;</span><span class="p">:</span> <span class="s2">&quot;chi.kabletown.net&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;guid&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+           <span class="s2">&quot;hostName&quot;</span><span class="p">:</span> <span class="s2">&quot;atsec-chi-00&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;19&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;172.16.2.6&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloIpGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;172.16.2.1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloIpNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloPassword&quot;</span><span class="p">:</span> <span class="s2">&quot;********&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloUsername&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;interfaceMtu&quot;</span><span class="p">:</span> <span class="s2">&quot;9000&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;interfaceName&quot;</span><span class="p">:</span> <span class="s2">&quot;bond0&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ip6Address&quot;</span><span class="p">:</span> <span class="s2">&quot;2033:D0D0:3300::2:2/64&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ip6Gateway&quot;</span><span class="p">:</span> <span class="s2">&quot;2033:D0D0:3300::2:1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ipAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;10.10.2.2&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ipGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;10.10.2.1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ipNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-03-08 15:57:32&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;mgmtIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;mgmtIpGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;mgmtIpNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;offlineReason&quot;</span><span class="p">:</span> <span class="s2">&quot;N/A&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;physLocation&quot;</span><span class="p">:</span> <span class="s2">&quot;plocation-chi-1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;physLocationId&quot;</span><span class="p">:</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE1_CDN1_421_SSL&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;profileDesc&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE1_CDN1_421_SSL profile&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;rack&quot;</span><span class="p">:</span> <span class="s2">&quot;RR 119.02&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;routerHostName&quot;</span><span class="p">:</span> <span class="s2">&quot;rtr-chi.kabletown.net&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;routerPortName&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ONLINE&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;statusId&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;tcpPort&quot;</span><span class="p">:</span> <span class="s2">&quot;80&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;httpsPort&quot;</span><span class="p">:</span> <span class="s2">&quot;443&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;typeId&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;updPending&quot;</span><span class="p">:</span> <span class="n">false</span>
+       <span class="p">}</span>
+     <span class="p">]</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>GET /api/1.1/servers/summary</strong></p>
+<blockquote>
+<div><p>Retrieves a count of CDN servers by type.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Response Properties</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 9%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">count</span></code></p></td>
+<td><p>int</p></td>
+<td><p>The number of servers of this type in this instance of Traffic Ops.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The name of the type of the server count (see <a class="reference internal" href="type.html#to-api-v11-type"><span class="std std-ref">Types</span></a>).</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">55</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;MID&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">18</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;INFLUXDB&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;RASCAL&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>GET /api/1.1/servers/hostname/:name/details</strong></p>
+<blockquote>
+<div><p>Retrieves the details of a server.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>The host name part of the cache.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 6%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cachegroup</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The cache group name (see <a class="reference internal" href="cachegroup.html#to-api-v11-cachegroup"><span class="std std-ref">Cache Group</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">deliveryservices</span></code></p></td>
+<td><p>array</p></td>
+<td><p>Array of strings with the delivery service ids assigned (see <a class="reference internal" href="deliveryservice.html#to-api-v11-ds"><span class="std std-ref">Delivery Service</span></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">domainName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The domain name part of the FQDN of the cache.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hardwareInfo</span></code></p></td>
+<td><p>hash</p></td>
+<td><p>Hwinfo struct (see <a class="reference internal" href="hwinfo.html#to-api-v11-hwinfo"><span class="std std-ref">Hardware Info</span></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hostName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The host name part of the cache.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The server id (database row number).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">iloIpAddress</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 address of the lights-out-management port.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">iloIpGateway</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 gateway address of the lights-out-management port.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">iloIpNetmask</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 netmask of the lights-out-management port.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">iloPassword</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The password of the of the lights-out-management user (displays as <strong>**</strong> unless ‘ops’ / ‘admin’ user).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">iloUsername</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The user name for lights-out-management.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">interfaceMtu</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The Maximum Transmission Unit (MTU) to configure for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">interfaceName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The network interface name used for serving traffic.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ip6Address</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv6 address/netmask for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ip6Gateway</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv6 gateway for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ipAddress</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 address for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ipGateway</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 gateway for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ipNetmask</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 netmask for <code class="docutils literal notranslate"><span class="pre">interfaceName</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lastUpdated</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The Time/Date of the last update for this server.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mgmtIpAddress</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 address of the management port (optional).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mgmtIpGateway</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 gateway of the management port (optional).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mgmtIpNetmask</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The IPv4 netmask of the management port (optional).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">physLocation</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The physical location name (see <a class="reference internal" href="phys_location.html#to-api-v11-phys-loc"><span class="std std-ref">Physical Location</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">profile</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The assigned profile name (see <a class="reference internal" href="profile.html#to-api-v11-profile"><span class="std std-ref">Profiles</span></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rack</span></code></p></td>
+<td><p>string</p></td>
+<td><p>A string indicating rack location.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">routerHostName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The human readable name of the router.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">routerPortName</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The human readable name of the router port.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The Status string (See <a class="reference internal" href="status.html#to-api-v11-status"><span class="std std-ref">Status</span></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tcpPort</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The default TCP port on which the main application listens (80 for a cache in most cases).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">httpsPort</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The default HTTPS port on which the main application listens (443 for a cache in most cases).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The name of the type of this server (see <a class="reference internal" href="type.html#to-api-v11-type"><span class="std std-ref">Types</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xmppId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Deprecated.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xmppPasswd</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Deprecated.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-il-chicago&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;deliveryservices&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;4&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;domainName&quot;</span><span class="p">:</span> <span class="s2">&quot;chi.kabletown.net&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hardwareInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;Physical Disk 0:1:3&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:2&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:15&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Power Supply.Slot.2&quot;</span><span class="p">:</span> <span class="s2">&quot;04.07.15&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:24&quot;</span><span class="p">:</span> <span class="s2">&quot;YS08&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:1&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Model&quot;</span><span class="p">:</span> <span class="s2">&quot;PowerEdge R720xd&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:22&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:18&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Enterprise UEFI Diagnostics&quot;</span><span class="p">:</span> <span class="s2">&quot;4217A5&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Lifecycle Controller&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.8.42&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:8&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Manufacturer&quot;</span><span class="p">:</span> <span class="s2">&quot;Dell Inc.&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:6&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;SysMemTotalSize&quot;</span><span class="p">:</span> <span class="s2">&quot;196608&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;PopulatedDIMMSlots&quot;</span><span class="p">:</span> <span class="s2">&quot;24&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:20&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Intel(R) Ethernet 10G 2P X520 Adapter&quot;</span><span class="p">:</span> <span class="s2">&quot;13.5.7&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:14&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;BACKPLANE FIRMWARE&quot;</span><span class="p">:</span> <span class="s2">&quot;1.00&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Dell OS Drivers Pack, 7.0.0.29, A00&quot;</span><span class="p">:</span> <span class="s2">&quot;7.0.0.29&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Integrated Dell Remote Access Controller&quot;</span><span class="p">:</span> <span class="s2">&quot;1.57.57&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:5&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;ServiceTag&quot;</span><span class="p">:</span> <span class="s2">&quot;D6XPDV1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;PowerState&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:23&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:25&quot;</span><span class="p">:</span> <span class="s2">&quot;D903&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;BIOS&quot;</span><span class="p">:</span> <span class="s2">&quot;1.3.6&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:12&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;System CPLD&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.3&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:4&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:0&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Power Supply.Slot.1&quot;</span><span class="p">:</span> <span class="s2">&quot;04.07.15&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;PERC H710P Mini&quot;</span><span class="p">:</span> <span class="s2">&quot;21.0.2-0001&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;PowerCap&quot;</span><span class="p">:</span> <span class="s2">&quot;689&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:16&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:10&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:11&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Lifecycle Controller 2&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.8.42&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;BP12G+EXP 0:1&quot;</span><span class="p">:</span> <span class="s2">&quot;1.07&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:9&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:17&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Broadcom Gigabit Ethernet BCM5720&quot;</span><span class="p">:</span> <span class="s2">&quot;7.2.20&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:21&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:13&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:7&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Physical Disk 0:1:19&quot;</span><span class="p">:</span> <span class="s2">&quot;D1S2&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;hostName&quot;</span><span class="p">:</span> <span class="s2">&quot;atsec-chi-00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;19&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;iloIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;172.16.2.6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;iloIpGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;172.16.2.1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;iloIpNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;iloPassword&quot;</span><span class="p">:</span> <span class="s2">&quot;********&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;iloUsername&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;interfaceMtu&quot;</span><span class="p">:</span> <span class="s2">&quot;9000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;interfaceName&quot;</span><span class="p">:</span> <span class="s2">&quot;bond0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ip6Address&quot;</span><span class="p">:</span> <span class="s2">&quot;2033:D0D0:3300::2:2/64&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ip6Gateway&quot;</span><span class="p">:</span> <span class="s2">&quot;2033:D0D0:3300::2:1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ipAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;10.10.2.2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ipGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;10.10.2.1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ipNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mgmtIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mgmtIpGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mgmtIpNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;physLocation&quot;</span><span class="p">:</span> <span class="s2">&quot;plocation-chi-1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE1_CDN1_421_SSL&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rack&quot;</span><span class="p">:</span> <span class="s2">&quot;RR 119.02&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;routerHostName&quot;</span><span class="p">:</span> <span class="s2">&quot;rtr-chi.kabletown.net&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;routerPortName&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ONLINE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tcpPort&quot;</span><span class="p">:</span> <span class="s2">&quot;80&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;httpsPort&quot;</span><span class="p">:</span> <span class="s2">&quot;443&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;xmppId&quot;</span><span class="p">:</span> <span class="s2">&quot;atsec-chi-00-dummyxmpp&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;xmppPasswd&quot;</span><span class="p">:</span> <span class="s2">&quot;X&quot;</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>POST /api/1.1/servercheck</strong></p>
+<blockquote>
+<div><p>Post a server check result to the serverchecks table.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 20%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">host_name</span></code></p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">servercheck_short_name</span></code></p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;host_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;servercheck_short_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p><strong>Response Properties</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 15%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">alerts</span></code></p></td>
+<td><p>array</p></td>
+<td><p>A collection of alert messages.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;level</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Success, info, warning or error.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;text</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Alert message.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">version</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Response</span> <span class="n">Example</span><span class="p">:</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;alerts&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Server Check was successfully updated.&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="static_dns.html" class="btn btn-neutral float-right" title="Static DNS Entries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="role.html" class="btn btn-neutral float-left" title="Roles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Traffic Control
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

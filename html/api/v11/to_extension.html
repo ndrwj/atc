@@ -1,0 +1,546 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TO Extensions &mdash; Traffic Control 3.1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Types" href="type.html" />
+    <link rel="prev" title="System" href="system.html" />
+    <link href="../../_static/theme_overrides.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Traffic Control
+          
+
+          
+            
+            <img src="../../_static/ATC-SVG-FULL-WHITE.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/index.html">CDN Basics</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Traffic Control Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../admin/index.html">Administrator’s Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">APIs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops_api.html">API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../routes.html">API Routes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">API 1.1 Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="asn.html">ASNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cachegroup.html">Cache Group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdn.html">CDN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html">Change Logs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deliveryservice.html">Delivery Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwinfo.html">Hardware Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parameter.html">Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="phys_location.html">Physical Location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="profile.html">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="region.html">Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="role.html">Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server.html">Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="static_dns.html">Static DNS Entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="status.html">Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="system.html">System</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">TO Extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#api-1-1-to-extensions">/api/1.1/to_extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="type.html">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user.html">Users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../v12/index.html">API 1.2 Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../v13/index.html">API 1.3 Reference</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Traffic Control</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">APIs</a> &raquo;</li>
+        
+          <li><a href="index.html">API 1.1 Reference</a> &raquo;</li>
+        
+      <li>TO Extensions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api/v11/to_extension.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="to-extensions">
+<span id="to-api-v11-ext"></span><h1>TO Extensions<a class="headerlink" href="#to-extensions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="api-1-1-to-extensions">
+<span id="to-api-v11-ext-route"></span><h2>/api/1.1/to_extensions<a class="headerlink" href="#api-1-1-to-extensions" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /api/1.1/to_extensions.json</strong></p>
+<p>Retrieves the list of extensions.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Response Properties</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 10%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">script_file</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">version</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">description</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">info_url</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">additional_config_json</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isactive</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">servercheck_short_name</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+       <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                      <span class="n">script_file</span><span class="p">:</span> <span class="s2">&quot;ping&quot;</span><span class="p">,</span>
+                      <span class="n">version</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+                      <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;ILO_PING&quot;</span><span class="p">,</span>
+                      <span class="n">description</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+                      <span class="n">info_url</span><span class="p">:</span> <span class="s2">&quot;http://foo.com/bar.html&quot;</span><span class="p">,</span>
+                      <span class="n">additional_config_json</span><span class="p">:</span> <span class="s2">&quot;{ &quot;</span><span class="n">path</span><span class="s2">&quot;: &quot;</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="mf">1.1</span><span class="o">/</span><span class="n">servers</span><span class="o">.</span><span class="n">json</span><span class="s2">&quot;, &quot;</span><span class="n">match</span><span class="s2">&quot;: { &quot;</span><span class="nb">type</span><span class="s2">&quot;: &quot;</span><span class="n">EDGE</span><span class="s2">&quot;}, &quot;</span><span class="n">select</span><span class="s2">&quot;: &quot;</span><span class="n">ilo_ip_address</span><span class="s2">&quot;, &quot;</span><span class="n">cron</span><span class="s2">&quot;: &quot;</span><span class="mi">9</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span><span class="s2">&quot; }&quot;</span><span class="p">,</span>
+                      <span class="n">isactive</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                      <span class="nb">id</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                      <span class="nb">type</span><span class="p">:</span> <span class="s2">&quot;CHECK_EXTENSION_BOOL&quot;</span><span class="p">,</span>
+                      <span class="n">servercheck_short_name</span><span class="p">:</span> <span class="s2">&quot;ILO&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                      <span class="n">script_file</span><span class="p">:</span> <span class="s2">&quot;ping&quot;</span><span class="p">,</span>
+                      <span class="n">version</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+                      <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;10G_PING&quot;</span><span class="p">,</span>
+                      <span class="n">description</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+                      <span class="n">info_url</span><span class="p">:</span> <span class="s2">&quot;http://foo.com/bar.html&quot;</span><span class="p">,</span>
+                      <span class="n">additional_config_json</span><span class="p">:</span> <span class="s2">&quot;{ &quot;</span><span class="n">path</span><span class="s2">&quot;: &quot;</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="mf">1.1</span><span class="o">/</span><span class="n">servers</span><span class="o">.</span><span class="n">json</span><span class="s2">&quot;, &quot;</span><span class="n">match</span><span class="s2">&quot;: { &quot;</span><span class="nb">type</span><span class="s2">&quot;: &quot;</span><span class="n">EDGE</span><span class="s2">&quot;}, &quot;</span><span class="n">select</span><span class="s2">&quot;: &quot;</span><span class="n">ip_address</span><span class="s2">&quot;, &quot;</span><span class="n">cron</span><span class="s2">&quot;: &quot;</span><span class="mi">18</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span><span class="s2">&quot; }&quot;</span><span class="p">,</span>
+                      <span class="n">isactive</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                      <span class="nb">id</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                      <span class="nb">type</span><span class="p">:</span> <span class="s2">&quot;CHECK_EXTENSION_BOOL&quot;</span><span class="p">,</span>
+                      <span class="n">servercheck_short_name</span><span class="p">:</span> <span class="s2">&quot;10G&quot;</span>
+              <span class="p">}</span>
+       <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>POST /api/1.1/to_extensions</strong></p>
+<blockquote>
+<div><p>Creates a Traffic Ops extension.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 10%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">version</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">info_url</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">script_file</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isactive</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">additional_config_json</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">description</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">servercheck_short_name</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ILO_PING&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://foo.com/bar.html&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;script_file&quot;</span><span class="p">:</span> <span class="s2">&quot;ping&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;isactive&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;additional_config_json&quot;</span><span class="p">:</span> <span class="s2">&quot;{ &quot;</span><span class="n">path</span><span class="s2">&quot;: &quot;</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="mf">1.1</span><span class="o">/</span><span class="n">servers</span><span class="o">.</span><span class="n">json</span><span class="s2">&quot;, &quot;</span><span class="n">match</span><span class="s2">&quot;: { &quot;</span><span class="nb">type</span><span class="s2">&quot;: &quot;</span><span class="n">EDGE</span><span class="s2">&quot;}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">&quot;servercheck_short_name&quot;</span><span class="p">:</span> <span class="s2">&quot;ILO&quot;</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;CHECK_EXTENSION_BOOL&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p><strong>Response Properties</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 15%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">alerts</span></code></p></td>
+<td><p>array</p></td>
+<td><p>A collection of alert messages.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;level</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Success, info, warning or error.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;text</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Alert message.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Check Extension loaded.&quot;</span>
+    <span class="p">}</span>
+ <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>POST /api/1.1/to_extensions/:id/delete</strong></p>
+<blockquote>
+<div><p>Deletes a Traffic Ops extension.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 29%" />
+<col style="width: 49%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>TO extension id</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 15%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">alerts</span></code></p></td>
+<td><p>array</p></td>
+<td><p>A collection of alert messages.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;level</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Success, info, warning or error.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;text</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Alert message.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Extension deleted.&quot;</span>
+    <span class="p">}</span>
+ <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="type.html" class="btn btn-neutral float-right" title="Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="system.html" class="btn btn-neutral float-left" title="System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Traffic Control
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

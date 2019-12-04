@@ -1,0 +1,733 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>StaticDNSEntries &mdash; Traffic Control 3.1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="FAQ" href="../../faq/index.html" />
+    <link rel="prev" title="Origin" href="origin.html" />
+    <link href="../../_static/theme_overrides.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Traffic Control
+          
+
+          
+            
+            <img src="../../_static/ATC-SVG-FULL-WHITE.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/index.html">CDN Basics</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Traffic Control Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../admin/index.html">Administrator’s Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">APIs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops_api.html">API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../routes.html">API Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../v11/index.html">API 1.1 Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../v12/index.html">API 1.2 Reference</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">API 1.3 Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="coordinate.html">Coordinate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="origin.html">Origin</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">StaticDNSEntries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#api-1-3-staticdnsentries">/api/1.3/staticdnsentries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Traffic Control</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">APIs</a> &raquo;</li>
+        
+          <li><a href="index.html">API 1.3 Reference</a> &raquo;</li>
+        
+      <li>StaticDNSEntries</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api/v13/staticdnsentry.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="staticdnsentries">
+<span id="to-api-v13-staticdnsentries"></span><h1>StaticDNSEntries<a class="headerlink" href="#staticdnsentries" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="api-1-3-staticdnsentries">
+<span id="to-api-v13-static-dns-entry-route"></span><h2>/api/1.3/staticdnsentries<a class="headerlink" href="#api-1-3-staticdnsentries" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /api/1.3/staticdnsentries</strong></p>
+<blockquote>
+<div><p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Query Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 8%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>no</p></td>
+<td><p>Filter StaticDNSEntries by id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">address</span></code>
+<code class="docutils literal notranslate"><span class="pre">cachegroup</span></code>
+<code class="docutils literal notranslate"><span class="pre">cachegroupId</span></code>
+<code class="docutils literal notranslate"><span class="pre">deliveryservice</span></code>
+<code class="docutils literal notranslate"><span class="pre">deliveryserviceId</span></code>
+<code class="docutils literal notranslate"><span class="pre">host</span></code>
+<code class="docutils literal notranslate"><span class="pre">ttl</span></code>
+<code class="docutils literal notranslate"><span class="pre">type</span></code>
+<code class="docutils literal notranslate"><span class="pre">typeId</span></code></p></td>
+<td><p>no
+no
+no
+no
+no
+no
+no
+no
+no</p></td>
+<td><p>Filter StaticDNSENtries by address.
+Filter StaticDNSENtries by cachegroup name.
+Filter StaticDNSENtries by cachegroup id.
+Filter StaticDNSENtries by deliveryservice (xml_id).
+Filter StaticDNSENtries by deliveryserviceId.
+Filter StaticDNSENtries by host.
+Filter StaticDNSENtries by ttl.
+Filter StaticDNSENtries by type (valid types are A_RECORD, AAAA_RECORD and CNAME_RECORD).
+Filter StaticDNSENtries by typeId.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 11%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">address</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The fully qualified domain name (FQDN)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cachegroup</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The Cachegroup Name</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cachegroupId</span></code></p></td>
+<td><p>int</p></td>
+<td><p>The Cachegroup id</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">deliveryservice</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The DeliveryService Name</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">deliveryserviceId</span></code></p></td>
+<td><p>int</p></td>
+<td><p>The DeliveryService id</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">host</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The hostname</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>int</p></td>
+<td><p>Local unique identifier</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lastUpdated</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The Time / Date this entry was last updated</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ttl</span></code></p></td>
+<td><p>int</p></td>
+<td><p>The Total Time to Live</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;this.one.is.a.hostname&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;cachegroup1&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+       <span class="s2">&quot;deliveryservice&quot;</span><span class="p">:</span> <span class="s2">&quot;ds1&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;deliveryserviceId&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-25 20:27:28&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;host1&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+       <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+       <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;CNAME_RECORD&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;typeId&quot;</span><span class="p">:</span> <span class="mi">19</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;this.two.is.a.hostname&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;cachegroup2&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+       <span class="s2">&quot;deliveryservice&quot;</span><span class="p">:</span> <span class="s2">&quot;ds1&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;deliveryserviceId&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-25 20:27:28&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;host2&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+       <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+       <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;A_RECORD&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;typeId&quot;</span><span class="p">:</span> <span class="mi">18</span>
+    <span class="p">}</span>
+ <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>POST /api/1.3/staticdnsentries</strong></p>
+<blockquote>
+<div><p>Create a StaticDNSEntry.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: admin or oper</p>
+<p><strong>Request Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 14%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">address</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>The fully qualified domain name (FQDN)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cachegroupId</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>The Cachegroup id</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">deliveryserviceId</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>The DeliveryService id</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">host</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>The hostname</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ttl</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>The Total Time to Live</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;this.one.is.a.hostname&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="s2">&quot;deliveryserviceId&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">10</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response Properties</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 11%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>int</p></td>
+<td><p>The id of the StaticDNSEntry</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">address</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The fully qualified domain name (FQDN)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cachegroupId</span></code></p></td>
+<td><p>int</p></td>
+<td><p>The Cachegroup id</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">deliveryserviceId</span></code></p></td>
+<td><p>int</p></td>
+<td><p>The DeliveryService id</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">host</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The hostname</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ttl</span></code></p></td>
+<td><p>int</p></td>
+<td><p>The Total Time to Live</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">alerts</span></code></p></td>
+<td><p>array</p></td>
+<td><p>A collection of alert messages.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;level</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Success, info, warning or error.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;text</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Alert message.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;staticdnsentry was created&quot;</span>
+              <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;this.one.is.a.hostname&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+        <span class="s2">&quot;deliveryserviceId&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s2">&quot;lastUpdated&quot;</span> <span class="p">:</span> <span class="s2">&quot;2016-01-25 13:55:30&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">10</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>PUT /api/1.3/staticdnsentries</strong></p>
+<blockquote>
+<div><p>Update staticdnsentries.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: admin or oper</p>
+<p><strong>Request Query Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 18%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>yes</p></td>
+<td><p>The id of the staticdnsentry to edit.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 14%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">address</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>The fully qualified domain name (FQDN)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cachegroupId</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>The Cachegroup id</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">deliveryserviceId</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>The DeliveryService id</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">host</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>The hostname</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ttl</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>The Total Time to Live</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;this.one.is.a.hostname&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="s2">&quot;deliveryserviceId&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">10</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response Properties</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 11%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>int</p></td>
+<td><p>The id of the StaticDNSEntry</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">address</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The fully qualified domain name (FQDN)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cachegroupId</span></code></p></td>
+<td><p>int</p></td>
+<td><p>The Cachegroup id</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">deliveryserviceId</span></code></p></td>
+<td><p>int</p></td>
+<td><p>The DeliveryService id</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">host</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The hostname</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ttl</span></code></p></td>
+<td><p>int</p></td>
+<td><p>The Total Time to Live</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">alerts</span></code></p></td>
+<td><p>array</p></td>
+<td><p>A collection of alert messages.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;level</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Success, info, warning or error.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;text</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Alert message.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;staticdnsentry was updated&quot;</span>
+              <span class="p">}</span>
+      <span class="p">],</span>
+    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;this.one.is.a.hostname&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+        <span class="s2">&quot;deliveryserviceId&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s2">&quot;lastUpdated&quot;</span> <span class="p">:</span> <span class="s2">&quot;2016-01-25 13:55:30&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">10</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>DELETE /api/1.3/staticdnsentries</strong></p>
+<blockquote>
+<div><p>Delete staticdnsentries.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: admin or oper</p>
+<p><strong>Request Query Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 18%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>yes</p></td>
+<td><p>The id of the staticdnsentry to delete.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 15%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">alerts</span></code></p></td>
+<td><p>array</p></td>
+<td><p>A collection of alert messages.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;level</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Success, info, warning or error.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;text</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Alert message.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+      <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;staticdnsentry was deleted&quot;</span>
+                <span class="p">}</span>
+        <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../faq/index.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="origin.html" class="btn btn-neutral float-left" title="Origin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Traffic Control
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

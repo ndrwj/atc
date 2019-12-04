@@ -1,0 +1,960 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>traffic_ops_ort module &mdash; Traffic Control 3.1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Traffic Portal" href="../traffic_portal.html" />
+    <link rel="prev" title="edge" href="modules.html" />
+    <link href="../../_static/theme_overrides.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Traffic Control
+          
+
+          
+            
+            <img src="../../_static/ATC-SVG-FULL-WHITE.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/index.html">CDN Basics</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Traffic Control Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../admin/index.html">Administrator’s Guide</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Developer’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../building.html">Building Traffic Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops.html">Traffic Ops</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html">edge</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">traffic_ops_ort module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_portal.html">Traffic Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_router.html">Traffic Router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_stats.html">Traffic Stats</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">APIs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Traffic Control</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Developer’s Guide</a> &raquo;</li>
+        
+          <li><a href="modules.html">edge</a> &raquo;</li>
+        
+      <li>traffic_ops_ort module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/development/ort/traffic_ops_ort.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-traffic_ops_ort">
+<span id="traffic-ops-ort-module"></span><h1>traffic_ops_ort module<a class="headerlink" href="#module-traffic_ops_ort" title="Permalink to this headline">¶</a></h1>
+<p>This script aims to be a drop-in replacement for the aged
+<code class="docutils literal notranslate"><span class="pre">traffic_ops_ort.pl</span></code> script. Its primary purpose is for
+management of a cache server via configuration from
+Traffic Ops. This script will install/upgrade packages
+as necessary, will ensure services that ought to be running
+are running, and sets up ATS and ATS Plugin configuration files.</p>
+<dl class="data">
+<dt id="traffic_ops_ort.ATS_FILES">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">ATS_FILES</code><em class="property"> = {'astats.config', 'cache.config', 'hosting.config', 'logs_xml.config', 'parent.config', 'records.config', 'remap.config', 'ssl_multicert.config'}</em><a class="headerlink" href="#traffic_ops_ort.ATS_FILES" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the set of files which will require an ATS restart when changed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="traffic_ops_ort.ATS_NEEDS_RESTART">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">ATS_NEEDS_RESTART</code><em class="property"> = False</em><a class="headerlink" href="#traffic_ops_ort.ATS_NEEDS_RESTART" title="Permalink to this definition">¶</a></dt>
+<dd><p>Global state variable that tracks whether or not ATS should be restarted</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="traffic_ops_ort.FMT">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">FMT</code><em class="property"> = '%(levelname)s: line %(lineno)d in %(module)s.%(funcName)s: %(message)s'</em><a class="headerlink" href="#traffic_ops_ort.FMT" title="Permalink to this definition">¶</a></dt>
+<dd><p>A format specifier for logging output</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="traffic_ops_ort.HANDLERS">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">HANDLERS</code><em class="property"> = {'revalidate': &lt;function revalidate&gt;, 'syncds': &lt;function &lt;lambda&gt;&gt;}</em><a class="headerlink" href="#traffic_ops_ort.HANDLERS" title="Permalink to this definition">¶</a></dt>
+<dd><p>run modes mapped to handler functions</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="traffic_ops_ort.HOSTNAME">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">HOSTNAME</code><em class="property"> = ('9cec0194c84f', '9cec0194c84f')</em><a class="headerlink" href="#traffic_ops_ort.HOSTNAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains the host’s hostname as a tuple of <code class="docutils literal notranslate"><span class="pre">(short_hostname,</span> <span class="pre">full_hostname)</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="traffic_ops_ort.LOG_LEVELS">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">LOG_LEVELS</code><em class="property"> = {'ALL': 0, 'DEBUG': 10, 'ERROR': 40, 'FATAL': 50, 'INFO': 20, 'WARN': 30}</em><a class="headerlink" href="#traffic_ops_ort.LOG_LEVELS" title="Permalink to this definition">¶</a></dt>
+<dd><p>A map of command-line log level options to <code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code> log level constants</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="traffic_ops_ort.MODE">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">MODE</code><em class="property"> = None</em><a class="headerlink" href="#traffic_ops_ort.MODE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stores the current Run Mode</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="traffic_ops_ort.Modes">
+<em class="property">class </em><code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">Modes</code><a class="headerlink" href="#traffic_ops_ort.Modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></p>
+<p>Enumerated run modes</p>
+<dl class="attribute">
+<dt id="traffic_ops_ort.Modes.BADASS">
+<code class="sig-name descname">BADASS</code><em class="property"> = 4</em><a class="headerlink" href="#traffic_ops_ort.Modes.BADASS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply all settings specified in Traffic Ops, and attempt to solve all problems</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="traffic_ops_ort.Modes.INTERACTIVE">
+<code class="sig-name descname">INTERACTIVE</code><em class="property"> = 1</em><a class="headerlink" href="#traffic_ops_ort.Modes.INTERACTIVE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ask for user confirmation before modifying the system</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="traffic_ops_ort.Modes.REPORT">
+<code class="sig-name descname">REPORT</code><em class="property"> = 0</em><a class="headerlink" href="#traffic_ops_ort.Modes.REPORT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do nothing, only report what would be done</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="traffic_ops_ort.Modes.REVALIDATE">
+<code class="sig-name descname">REVALIDATE</code><em class="property"> = 2</em><a class="headerlink" href="#traffic_ops_ort.Modes.REVALIDATE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only check for config file changes and content revalidations</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="traffic_ops_ort.Modes.SYNCDS">
+<code class="sig-name descname">SYNCDS</code><em class="property"> = 3</em><a class="headerlink" href="#traffic_ops_ort.Modes.SYNCDS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for and apply Delivery Service changes</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="traffic_ops_ort.ORTException">
+<em class="property">exception </em><code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">ORTException</code><a class="headerlink" href="#traffic_ops_ort.ORTException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Represents an error while processing ORT API responses, etc.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.RedHatInstall">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">RedHatInstall</code><span class="sig-paren">(</span><em class="sig-param">packages</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.RedHatInstall" title="Permalink to this definition">¶</a></dt>
+<dd><p>RedHat-specific function to install a list of packages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>packages</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – A list of package names (optionally concatenated with versions) to be installed</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>whether or not all packages could be successfully installed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.RedHatInstalled">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">RedHatInstalled</code><span class="sig-paren">(</span><em class="sig-param">package</em>, <em class="sig-param">version=None</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.RedHatInstalled" title="Permalink to this definition">¶</a></dt>
+<dd><p>RedHat-specific function to check for the existence of a package on the system</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>package</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the package name for which to check</p></li>
+<li><p><strong>version</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – an optional version specification</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the list of packages installed by the name <code class="docutils literal notranslate"><span class="pre">package</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.RedHatUninstall">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">RedHatUninstall</code><span class="sig-paren">(</span><em class="sig-param">packages</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.RedHatUninstall" title="Permalink to this definition">¶</a></dt>
+<dd><p>RedHat-specific function to uninstall a list of packages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>packages</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – A list of packages to be uninstalled</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>whether or not all packages could be successfully installed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="data">
+<dt id="traffic_ops_ort.TO_COOKIE">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">TO_COOKIE</code><em class="property"> = None</em><a class="headerlink" href="#traffic_ops_ort.TO_COOKIE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds the Mojolicious cookie returned by Traffic Ops on successful login, and needed for
+subsequent requests.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="traffic_ops_ort.TO_LOGIN">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">TO_LOGIN</code><em class="property"> = None</em><a class="headerlink" href="#traffic_ops_ort.TO_LOGIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds the Traffic Ops login information as a JSON-encoded string</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="traffic_ops_ort.TO_URL">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">TO_URL</code><em class="property"> = None</em><a class="headerlink" href="#traffic_ops_ort.TO_URL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds the full URL including schema (e.g. ‘http’) and port that points at Traffic Ops</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="traffic_ops_ort.TS_ROOT">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">TS_ROOT</code><em class="property"> = None</em><a class="headerlink" href="#traffic_ops_ort.TS_ROOT" title="Permalink to this definition">¶</a></dt>
+<dd><p>An absolute path to the root installation directory of Apache Trafficserver</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.UbuntuInstall">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">UbuntuInstall</code><span class="sig-paren">(</span><em class="sig-param">packages</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.UbuntuInstall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ubuntu-specific function to install a list of packages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>packages</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – A list of package names (optionally concatenated with versions) to be installed</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>whether or not all packages could be successfully installed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.UbuntuInstalled">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">UbuntuInstalled</code><span class="sig-paren">(</span><em class="sig-param">package</em>, <em class="sig-param">version=None</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.UbuntuInstalled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ubuntu-specific function to check for the existence of a package on the system</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>package</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the package name for which to check</p></li>
+<li><p><strong>version</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – an optional version specification</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the list of packages installed by the name <code class="docutils literal notranslate"><span class="pre">package</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.UbuntuUninstall">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">UbuntuUninstall</code><span class="sig-paren">(</span><em class="sig-param">packages</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.UbuntuUninstall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ubuntu-specific function to uninstall a list of packages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>packages</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – A list of packages to be uninstalled</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>whether or not all packages could be successfully installed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.doMain">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">doMain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.doMain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs operations based on the run mode.
+This can be thought of as the “true” main function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>an exit code for the script</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.getConfigFiles">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">getConfigFiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.getConfigFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the list of configuration files used by this server’s profile</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The list of configuration files used by this server as reported by Traffic Ops</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.getHeaderComment">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">getHeaderComment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.getHeaderComment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the header for the Traffic Ops system</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The <code class="docutils literal notranslate"><span class="pre">toolname</span></code> field of the Traffic Ops header</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.getJSONResponse">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">getJSONResponse</code><span class="sig-paren">(</span><em class="sig-param">uri</em>, <em class="sig-param">expectedStatus=200</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.getJSONResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON-encoded response to a Traffic Ops API <code class="docutils literal notranslate"><span class="pre">GET</span></code> request</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uri</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The request URI, relative to <a class="reference internal" href="#traffic_ops_ort.TO_URL" title="traffic_ops_ort.TO_URL"><code class="xref py py-data docutils literal notranslate"><span class="pre">TO_URL</span></code></a></p></li>
+<li><p><strong>expectedStatus</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The expected status code of the response. If the actual response doesn’t
+match, this function will return <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>On success, a parsed JSON object - or <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code> on failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.getRawResponse">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">getRawResponse</code><span class="sig-paren">(</span><em class="sig-param">uri</em>, <em class="sig-param">expectedStatus=200</em>, <em class="sig-param">TOrelative=True</em>, <em class="sig-param">verify=False</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.getRawResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the raw response body of an HTTP <code class="docutils literal notranslate"><span class="pre">GET</span></code> request - optionally one that is relative to
+<a class="reference internal" href="#traffic_ops_ort.TO_URL" title="traffic_ops_ort.TO_URL"><code class="xref py py-data docutils literal notranslate"><span class="pre">TO_URL</span></code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Actually encodes to utf-8 string</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uri</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The full (unless <code class="docutils literal notranslate"><span class="pre">Torelative</span></code> is <code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code>) path to a resource for the request</p></li>
+<li><p><strong>expectedStatus</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The expected status code of the response. If the actual response doesn’t
+match, this function will return <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>TOrelative</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If true, the <code class="docutils literal notranslate"><span class="pre">uri</span></code> will be treated as relative to <a class="reference internal" href="#traffic_ops_ort.TO_URL" title="traffic_ops_ort.TO_URL"><code class="xref py py-data docutils literal notranslate"><span class="pre">TO_URL</span></code></a></p></li>
+<li><p><strong>verify</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If true, the SSL keys used to communicate with the full URI will be verified</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The body of the response on success, <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code> on failure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.getYesNoResponse">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">getYesNoResponse</code><span class="sig-paren">(</span><em class="sig-param">prmpt</em>, <em class="sig-param">default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.getYesNoResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility function to get an interactive yes/no response to the prompt <cite>prmpt</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prmpt</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The prompt to display to users</p></li>
+<li><p><strong>default</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The default response; should be one of <code class="docutils literal notranslate"><span class="pre">'y'</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;yes&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">'n'</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;no&quot;</span></code>
+(case insensitive)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the parsed response as a boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.handleMissingPythonPackages">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">handleMissingPythonPackages</code><span class="sig-paren">(</span><em class="sig-param">packages</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.handleMissingPythonPackages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the case of missing packages, by installing them in <a class="reference internal" href="#traffic_ops_ort.Modes.BADASS" title="traffic_ops_ort.Modes.BADASS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Modes.BADASS</span></code></a> mode,
+asking the user for confirmation in <a class="reference internal" href="#traffic_ops_ort.Modes.INTERACTIVE" title="traffic_ops_ort.Modes.INTERACTIVE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Modes.INTERACTIVE</span></code></a> mode, and failing in all
+other run modes.</p>
+<p>Installs packages by calling <a class="reference internal" href="#traffic_ops_ort.installPythonPackages" title="traffic_ops_ort.installPythonPackages"><code class="xref py py-func docutils literal notranslate"><span class="pre">installPythonPackages()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>packages</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – A list of missing Python dependencies</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A boolean indicator of success regarding the installation of missing dependencies</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.initBackup">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">initBackup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.initBackup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes a backup directory as a subdirectory of the directory containing
+this ORT script.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>whether or not the backup directory was successfully initialized</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="data">
+<dt id="traffic_ops_ort.installPackage">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">installPackage</code><em class="property"> = {'centos': &lt;function RedHatInstall&gt;, 'fedora': &lt;function RedHatInstall&gt;, 'linuxmint': &lt;function UbuntuInstall&gt;, 'rhel': &lt;function RedHatInstall&gt;, 'ubuntu': &lt;function UbuntuInstall&gt;}</em><a class="headerlink" href="#traffic_ops_ort.installPackage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps distro names to functions that install packages on those distros</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.installPythonPackages">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">installPythonPackages</code><span class="sig-paren">(</span><em class="sig-param">packages</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.installPythonPackages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to install the packages listed in <code class="docutils literal notranslate"><span class="pre">packages</span></code> and
+add them to the global scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>packages</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – A list of missing Python dependencies</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a truthy value indicating success.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.main">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the program</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>an exit code for the script</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.mkbackup">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">mkbackup</code><span class="sig-paren">(</span><em class="sig-param">fname</em>, <em class="sig-param">contents</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.mkbackup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a backup of a specific file with its original contents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fname</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The name of the file being backed up (basename only)</p></li>
+<li><p><strong>contents</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The file’s original contents</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p>whether or not the backup succeeded</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="data">
+<dt id="traffic_ops_ort.packageConcat">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">packageConcat</code><em class="property"> = {'centos': '-', 'fedora': '-', 'linuxmint': '=', 'rhel': '-', 'ubuntu': '='}</em><a class="headerlink" href="#traffic_ops_ort.packageConcat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps distro names to the symbols that concatenate package names with version semantics for said
+distros</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="traffic_ops_ort.packageIsInstalled">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">packageIsInstalled</code><em class="property"> = {'centos': &lt;function RedHatInstalled&gt;, 'fedora': &lt;function RedHatInstalled&gt;, 'linuxmint': &lt;function UbuntuInstalled&gt;, 'rhel': &lt;function RedHatInstalled&gt;, 'ubuntu': &lt;function UbuntuInstalled&gt;}</em><a class="headerlink" href="#traffic_ops_ort.packageIsInstalled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps distro names to functions that check for the existence of packages on those distros</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.processChkconfig">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">processChkconfig</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.processChkconfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process the list of services Traffic Ops reports ought to be running on this system</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>whether or not all services could be processed</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This actually only handles Apache Traffic Server at the moment</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.processConfigFile">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">processConfigFile</code><span class="sig-paren">(</span><em class="sig-param">file</em>, <em class="sig-param">port</em>, <em class="sig-param">ip</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.processConfigFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process a given configuration file object to produce the specified contents</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – An object representing a configuration file</p></li>
+<li><p><strong>port</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – This server’s TCP port</p></li>
+<li><p><strong>ip</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – This server’s IPv4 address</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>whether or not the update was successful</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.processConfigFiles">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">processConfigFiles</code><span class="sig-paren">(</span><em class="sig-param">files</em>, <em class="sig-param">port</em>, <em class="sig-param">ip</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.processConfigFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processes the passed JSON object containing configuration file definitions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>) – A list of configuration file objects</p></li>
+<li><p><strong>port</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – This server’s TCP port</p></li>
+<li><p><strong>ip</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – This server’s IPv4 address</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>whether or not all configuration files could be processed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.processPackages">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">processPackages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.processPackages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manages the packages that Traffic Ops reports are required for this server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>whether or not the package processing was successfully completed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.revalidate">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">revalidate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.revalidate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs revalidation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">0</span></code> indicates success, <code class="docutils literal notranslate"><span class="pre">1</span></code> indicates no revalidation was pending and <code class="docutils literal notranslate"><span class="pre">2</span></code>
+indicates failure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.sanitizeContents">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">sanitizeContents</code><span class="sig-paren">(</span><em class="sig-param">contents</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.sanitizeContents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sanitizes the input <cite>contents</cite> string to be a well-behaved config file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.setATSStatus">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">setATSStatus</code><span class="sig-paren">(</span><em class="sig-param">status</em>, <em class="sig-param">restart=False</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.setATSStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the status of the system’s ATS process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Specifies whether ATS should be running (<code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code>) or not (<code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><strong>restart</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <p>If this is <code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code>, then ATS will be restarted if it is already running</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">restart</span></code> has no effect if <code class="docutils literal notranslate"><span class="pre">status</span></code> is <code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></p>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>whether or not the status setting was successful (or unnecessary)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.setStatusFile">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">setStatusFile</code><span class="sig-paren">(</span><em class="sig-param">statusDir</em>, <em class="sig-param">status</em>, <em class="sig-param">create=False</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.setStatusFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes all files in <code class="docutils literal notranslate"><span class="pre">statusDir</span></code> that aren’t <code class="docutils literal notranslate"><span class="pre">status</span></code>, and creates <code class="docutils literal notranslate"><span class="pre">status</span></code>
+if it doesn’t exist and <cite>create</cite> is True.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statusDir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The absolute path to the directory for Traffic Ops status files</p></li>
+<li><p><strong>status</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The name of the status to be set</p></li>
+<li><p><strong>create</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code>, a non-existant <code class="docutils literal notranslate"><span class="pre">statusDir/status</span></code> file will be created</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>OSError</strong> – when reading or writing to the status file fails</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.setTO_LOGIN">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">setTO_LOGIN</code><span class="sig-paren">(</span><em class="sig-param">login</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.setTO_LOGIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses and returns a JSON-encoded login string for the Traffic Ops API.
+This will set <a class="reference internal" href="#traffic_ops_ort.TO_COOKIE" title="traffic_ops_ort.TO_COOKIE"><code class="xref py py-data docutils literal notranslate"><span class="pre">TO_COOKIE</span></code></a> if login is successful.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>login</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The raw login info as passed on the command line (e.g. ‘username:password’)</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>PermissionError</strong> – if the provided credentials are refused</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a JSON-encoded login object suitable for passing to the Traffic Ops API’s login endpoint</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.startDaemon">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">startDaemon</code><span class="sig-paren">(</span><em class="sig-param">args</em>, <em class="sig-param">stdout='/dev/null'</em>, <em class="sig-param">stderr='/dev/null'</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.startDaemon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts a daemon process to execute an external command</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this can only indicate the success of the first fork.</p>
+</div>
+<p>The first fork will exit successfully as long as the second fork doesn’t
+raise an OSError. The second fork will exit with the same returncode as
+the exec’d process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The command line to be executed. <code class="docutils literal notranslate"><span class="pre">args[0]</span></code> should be the name of the executable</p></li>
+<li><p><strong>stdout</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – A filename to which the command’s stdout will be re-directed</p></li>
+<li><p><strong>stderr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – A filename to which the command’s stderr will be re-directed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>whether or not the fork succeeded</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.stripComments">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">stripComments</code><span class="sig-paren">(</span><em class="sig-param">s</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.stripComments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Strips comments from a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.syncDSState">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">syncDSState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.syncDSState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries Traffic Ops for the Delivery Service’s sync state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#traffic_ops_ort.ORTException" title="traffic_ops_ort.ORTException"><strong>ORTException</strong></a> – All possible errors are coalesced to this with a suitable error message</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code> if an update is needed, <code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code> if it isn’t.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="data">
+<dt id="traffic_ops_ort.uninstallPackage">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">uninstallPackage</code><em class="property"> = {'centos': &lt;function RedHatUninstall&gt;, 'fedora': &lt;function RedHatUninstall&gt;, 'linuxmint': &lt;function UbuntuUninstall&gt;, 'rhel': &lt;function RedHatUninstall&gt;, 'ubuntu': &lt;function UbuntuUninstall&gt;}</em><a class="headerlink" href="#traffic_ops_ort.uninstallPackage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps distro names to functions that uninstall packages on those distros</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.updateConfig">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">updateConfig</code><span class="sig-paren">(</span><em class="sig-param">directory</em>, <em class="sig-param">fname</em>, <em class="sig-param">contents</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.updateConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates a single configuration file</p>
+<p>This will make a backup in the <cite>backup</cite> subdirectory of the directory
+containing this script if the file on disk differs from <code class="docutils literal notranslate"><span class="pre">contents</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The directory which contains the configuration file</p></li>
+<li><p><strong>fname</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The basename of the configuration file</p></li>
+<li><p><strong>contents</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The contents which this file will hold</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p>whether or not the update was successful</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>”Success” is defined as being able to write the file contents and create any
+necessary backups if the run mode is not <a class="reference internal" href="#traffic_ops_ort.Modes.BADASS" title="traffic_ops_ort.Modes.BADASS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Modes.BADASS</span></code></a> - in which case failure
+to back the file up is ‘acceptable’.</p>
+</div>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="traffic_ops_ort.updateOps">
+<code class="sig-prename descclassname">traffic_ops_ort.</code><code class="sig-name descname">updateOps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traffic_ops_ort.updateOps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates Traffic Ops as needed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An exit code for the main routine</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../traffic_portal.html" class="btn btn-neutral float-right" title="Traffic Portal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="modules.html" class="btn btn-neutral float-left" title="edge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Traffic Control
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
